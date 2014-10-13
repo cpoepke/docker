@@ -18,9 +18,12 @@ RUN                     rm -f  mmc-distribution-mule-console-bundle-3.5.1.tar.gz
 
 # Copy the license key, keep the license conditions in mind!
 WORKDIR                 /opt/mmc-distribution-mule-console-bundle-3.5.1/mule-enterprise-3.5.1
+RUN                     rm -Rf .mule
 ADD                     ./mule-ee-license.lic /opt/mmc-distribution-mule-console-bundle-3.5.1/mule-enterprise-3.5.1/conf/
 RUN                     bin/mule -installLicense conf/mule-ee-license.lic
 RUN                     rm -f conf/mule-ee-license.lic
+RUN                     rm -Rf apps/default*
+RUN                     rm -Rf examples
 
 # Remove things that we don't need in production:
 WORKDIR                 /opt/
@@ -29,8 +32,6 @@ RUN                     rm -Rf mmc-distribution-mule-console-bundle-3.5.1/mmc-3.
 RUN                     rm -f mmc-distribution-mule-console-bundle-3.5.1/startup*
 RUN                     rm -f mmc-distribution-mule-console-bundle-3.5.1/shutdown*
 RUN                     rm -f mmc-distribution-mule-console-bundle-3.5.1/status*
-RUN                     rm -Rf apps/default*
-RUN                     rm -Rf examples
 
 # Configure external access:
 
@@ -39,6 +40,9 @@ EXPOSE  5000
 
 # Mule JMX port (must match Mule config file)
 EXPOSE  1098
+
+# Mule MMC agent port
+EXPOSE  7777
 
 # Environment and execution:
 
