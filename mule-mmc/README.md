@@ -3,7 +3,7 @@ Mule ESB Management Console Docker Image
 
 This project contains a Dockerfile for the deployment and packaging of a Mule ESB Management Console with Docker.
 
-Preparing the Docker base image
+Preparing the Docker image
 ---------------
 
 Due to restrictions of the Enterprise version, the Docker image needs to be set up for individual usage beforehand. It is required to provide the Enterprise standalone server from Mulesoft. In this Dockerfile we asume the downloaded trial version from [mulesoft.com](http://www.mulesoft.com/mule-esb-enterprise-30-day-trial), located in the same folder as the Dockerfile.
@@ -13,7 +13,7 @@ Hence the directory should look like this:
 * mule-mmc/Dockerfile
 * mule-mmc/mmc-distribution-mule-console-bundle-3.5.1.zip
 
-Building and tag the Docker base image
+Building and tagging the Docker image
 ---------------
 
 ```bash

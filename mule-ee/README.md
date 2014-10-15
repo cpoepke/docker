@@ -16,17 +16,17 @@ Hence the directory should look like this:
 * mule-ee/mmc-distribution-mule-console-bundle-3.5.1.zip
 * mule-ee/mule-ee-license.lic
 
-Building and tag the Docker base image
+Building and tagging the Docker base image
 ---------------
 
 ```bash
 docker build --tag="mule-ee" .
 ```
 
-Container types
+Image types
 ---------------
 
-There are two way now to use the Docker images, depending on the overall scenario:
+There are two ways now to use the Docker images, depending on the overall scenario:
 - you can use the base images to startup and create in a classical operations sense multiple standalone Mule ESB instances and one MMC instance. These can be used as a cluster as usual with hot deployment over MMC etc.
 - or, which we recommend, create an Docker image for each Mule ESB application to isolate applications from each other and this way startup and create multiple standalone Mule ESB instances and one MMC instance. This might be a an option in a Micro Services or SOA scenario.
 
